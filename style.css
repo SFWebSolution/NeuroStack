@@ -1,0 +1,197 @@
+/* ================= GENERAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* ================= BACKGROUND ================= */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('file_00000000b35c724690eef357ab92f39a.png') center/cover no-repeat;
+  z-index: -1;
+  transition: background 1s ease-in-out;
+  filter: brightness(50%);
+}
+
+/* ================= GLASSMORPHISM ================= */
+.glass-header, .glass-main, .glass-footer, .glass-card {
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+  transition: all 0.3s ease-in-out;
+}
+
+.glass-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+/* ================= HEADER ================= */
+.glass-header {
+  display: flex;
+  flex-direction: column; /* logo on top */
+  align-items: center;
+  gap: 10px; /* space between logo and nav */
+}
+
+/* Nav links horizontally below logo, auto shrink */
+.glass-header nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* space between links */
+  flex-wrap: nowrap; /* prevent wrapping */
+  width: 100%;
+}
+
+.glass-header nav a {
+  flex: 1; /* shrink links evenly */
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: clamp(0.7rem, 2vw, 1rem); /* shrink automatically on small screens */
+  transition: all 0.3s;
+}
+
+.glass-header nav a:hover,
+.glass-header nav a.active {
+  color: #00ffe6;
+  text-shadow: 0 0 10px #00ffe6, 0 0 20px #00ffe6;
+}
+
+/* ================= NEON TEXT ================= */
+.neon-text {
+  color: white;
+  font-size: 2rem;
+  text-shadow: 0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 20px #00f6ff;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 5px #00f6ff,0 0 10px #00f6ff,0 0 20px #00f6ff; }
+  to { text-shadow: 0 0 10px #00f6ff,0 0 20px #00f6ff,0 0 40px #00f6ff; }
+}
+
+/* ================= MAIN & CARDS ================= */
+.glass-main { text-align: center; }
+
+.glass-card { 
+  margin: 15px 0; 
+  padding: 20px; 
+  transition: 0.3s; 
+  width: 100%;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(0,255,255,0.3);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 90%;
+  max-width: 250px;
+}
+button:hover {
+  background: rgba(0,255,255,0.6);
+  box-shadow: 0 0 15px #00ffe6;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.project-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.contact-links a {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 10px 15px;
+  background: rgba(0,255,255,0.3);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.contact-links a:hover {
+  background: rgba(0,255,255,0.6);
+  box-shadow: 0 0 15px #00ffe6;
+}
+
+/* ================= FOOTER ================= */
+.glass-footer { text-align: center; color: white; }
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.service-card {
+  flex: 1 1 250px;
+  padding: 20px;
+  transition: 0.3s;
+  min-width: 200px;
+}
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0,255,255,0.5);
+}
+.service-card h3 {
+  color: #00ffe6;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px #00f6ff;
+}
+.service-card p {
+  color: white;
+  font-size: 0.95rem;
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+@media screen and (max-width: 768px) {
+  .neon-text { font-size: 1.5rem; }
+  button { width: 100%; }
+  .project-card img { max-width: 100%; height: auto; }
+}
+
+@media screen and (max-width: 480px) {
+  .neon-text { font-size: 1.2rem; }
+  .glass-card { padding: 15px; }
+  .contact-links a { padding: 8px 12px; font-size: 0.9rem; }
+  .service-card { padding: 15px; }
+}
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
