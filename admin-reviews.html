@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Reviews - NeuroStack</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- Top header -->
+  <header class="dashboard-header">
+    <img src="file_00000000a054724688f05571cf680672.png" alt="NeuroStack Logo" class="logo">
+    <h1>Admin Panel - Reviews</h1>
+  </header>
+
+  <!-- Statistics Section -->
+  <main class="dashboard-content">
+
+    <!-- User Summary -->
+    <section id="user-summary" class="admin-section">
+      <h2>All Users</h2>
+      <div id="users-container">
+        <p>Loading users...</p>
+      </div>
+    </section>
+
+    <!-- Reviews & Comments -->
+    <section id="reviews-section" class="admin-section">
+      <h2>Reviews & Comments</h2>
+      <div id="reviews-container">
+        <p>Loading reviews...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom nav -->
+  <nav class="bottom-nav">
+    <a href="admin.html">🏠 Home</a>
+    <a class="active" href="admin-reviews.html">✍️ Reviews</a>
+    <a href="admin-chat.html">💬 Chat</a>
+    <a href="admin-settings.html">⚙️ Settings</a>
+  </nav>
+
+  <!-- Firebase + reviews.js -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
+

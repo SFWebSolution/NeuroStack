@@ -1,0 +1,893 @@
+/* =========================
+   GENERAL STYLES
+========================= */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background image dimmed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('file_00000000b35c724690eef357ab92f39a.png') no-repeat center center/cover;
+  opacity: 0.05;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.light-theme::before {
+  filter: brightness(0.6);
+  opacity: 0.03;
+}
+
+body.light-theme {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  padding: 10px 15px;
+  border-bottom: 1px solid #00BFFF;
+}
+
+.dashboard-header .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dashboard-header h1 {
+  font-size: 22px;
+  color: #00BFFF;
+}
+
+/* Main content */
+.dashboard-content {
+  padding: 15px;
+  padding-bottom: 70px; /* space for bottom nav */
+}
+
+/* Updates cards */
+.update-card {
+  background-color: #111;
+  color: #fff;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00BFFF44;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.update-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #00BFFF77;
+}
+
+.update-card img {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Bottom nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #00BFFF;
+}
+
+.bottom-nav a {
+  color: #00BFFF;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.bottom-nav a:hover {
+  color: #fff;
+}
+.bottom-nav a.active {
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #00BFFF;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+  .bottom-nav a {
+    font-size: 16px;
+  }
+}
+
+
+.update-actions {
+  margin-top: 10px;
+}
+
+.comments-section {
+  margin-top: 15px;
+}
+
+.comment {
+  background: #222;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.reply {
+  background: #333;
+  padding: 6px;
+  margin: 4px 0 0 10px;
+  border-radius: 6px;
+}
+
+.comment-input, .reply-input {
+  width: 80%;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: none;
+}
+
+.comment-btn, .reply-btn, .like-btn {
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 6px;
+  background: #00BFFF;
+  color: #fff;
+  cursor: pointer;
+}
+.comment-btn:hover, .reply-btn:hover, .like-btn:hover {
+  background: #009ACD;
+}
+/* ------------------------- */
+/* GENERAL STYLES */
+/* ------------------------- */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000; /* Dark mode default */
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-theme {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+/* ------------------------- */
+/* HEADER */
+/* ------------------------- */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  padding: 10px 20px;
+  border-bottom: 2px solid #00BFFF;
+}
+
+body.light-theme .dashboard-header {
+  background-color: #fff;
+  border-bottom: 2px solid #0077aa;
+}
+
+.dashboard-header .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.dashboard-header h1 {
+  font-size: 22px;
+  color: #00BFFF;
+}
+
+body.light-theme .dashboard-header h1 {
+  color: #0077aa;
+}
+
+/* ------------------------- */
+/* MAIN CONTENT */
+/* ------------------------- */
+.dashboard-content {
+  padding: 20px;
+  padding-bottom: 90px; /* space for bottom nav */
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ------------------------- */
+/* CARDS (About, Services, Reviews, Chat, Settings) */
+/* ------------------------- */
+.card {
+  background-color: #111;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #00BFFF44;
+  transition: background-color 0.3s;
+}
+
+body.light-theme .card {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 12px #00BFFF22;
+}
+
+.card h2, .card h3 {
+  margin-top: 0;
+  color: #00BFFF;
+}
+
+body.light-theme .card h2,
+body.light-theme .card h3 {
+  color: #0077aa;
+}
+
+/* ------------------------- */
+/* ABOUT & SERVICES */
+/* ------------------------- */
+.about-section, .services-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.service-card, .social-link {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #222;
+  box-shadow: 0 0 8px #00BFFF44;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+body.light-theme .service-card,
+body.light-theme .social-link {
+  background-color: #f9f9f9;
+  color: #000;
+  box-shadow: 0 0 8px #00BFFF22;
+}
+
+.service-card:hover, .social-link:hover {
+  transform: scale(1.03);
+}
+
+/* ------------------------- */
+/* REVIEWS */
+/* ------------------------- */
+.review-card, .reply-card {
+  background-color: #222;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #00BFFF44;
+  transition: background-color 0.3s;
+  word-wrap: break-word;
+}
+
+body.light-theme .review-card,
+body.light-theme .reply-card {
+  background-color: #f9f9f9;
+  color: #000;
+  box-shadow: 0 0 8px #00BFFF22;
+}
+
+.reply-section {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.reply-section input {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Buttons for reviews (like/comment) */
+.like-btn, .comment-btn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #00BFFF;
+  color: #000;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.like-btn:hover, .comment-btn:hover {
+  background-color: #009ACD;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+body.light-theme .like-btn, body.light-theme .comment-btn {
+  background-color: #0077aa;
+  color: #fff;
+}
+
+body.light-theme .like-btn:hover, body.light-theme .comment-btn:hover {
+  background-color: #005f7f;
+}
+
+/* ------------------------- */
+/* CHAT */
+/* ------------------------- */
+#messages-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.message-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.message-card.admin-msg {
+  background-color: #00BFFF;
+  color: #000;
+  align-self: flex-end;
+}
+
+.message-card.user-msg {
+  background-color: #444;
+  color: #fff;
+  align-self: flex-start;
+}
+
+body.light-theme .message-card.admin-msg {
+  background-color: #0077aa;
+  color: #fff;
+}
+
+body.light-theme .message-card.user-msg {
+  background-color: #ddd;
+  color: #000;
+}
+
+/* ------------------------- */
+/* SETTINGS PAGE */
+/* ------------------------- */
+.user-section .setting-card {
+  background-color: #222;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00BFFF44;
+  transition: background-color 0.3s;
+}
+
+body.light-theme .user-section .setting-card {
+  background-color: #f9f9f9;
+  color: #000;
+  box-shadow: 0 0 10px #00BFFF22;
+}
+
+.user-section input, .user-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #00BFFF;
+  background-color: #222;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-theme .user-section input, body.light-theme .user-section textarea {
+  background-color: #f9f9f9;
+  color: #000;
+  border: 1px solid #0077aa;
+}
+
+.user-section button {
+  background-color: #00BFFF;
+  color: #000;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.user-section button:hover {
+  background-color: #009ACD;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+body.light-theme .user-section button {
+  background-color: #0077aa;
+  color: #fff;
+}
+
+body.light-theme .user-section button:hover {
+  background-color: #005f7f;
+}
+
+/* ------------------------- */
+/* BOTTOM NAVIGATION */
+/* ------------------------- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 2px solid #00BFFF;
+  z-index: 100;
+}
+
+body.light-theme .bottom-nav {
+  background-color: #fff;
+  border-top: 2px solid #0077aa;
+}
+
+.bottom-nav a {
+  color: #00BFFF;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.bottom-nav a:hover {
+  color: #fff;
+}
+
+body.light-theme .bottom-nav a {
+  color: #0077aa;
+}
+
+body.light-theme .bottom-nav a:hover {
+  color: #000;
+}
+
+/* ------------------------- */
+/* RESPONSIVE MEDIA QUERIES */
+/* ------------------------- */
+@media screen and (max-width: 900px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard-header .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .bottom-nav a {
+    font-size: 16px;
+  }
+
+  #messages-container {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .dashboard-header {
+    padding: 8px 10px;
+  }
+
+  .user-section input,
+  .user-section textarea {
+    padding: 8px;
+  }
+
+  .user-section button {
+    padding: 8px 12px;
+  }
+}
+/* =========================
+  Review Page Styles
+========================= */
+
+/* Container for all reviews */
+#reviews-container {
+  max-width: 900px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Each review card */
+.review-card {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #00BFFF44;
+  transition: background-color 0.3s;
+  word-wrap: break-word;
+}
+
+body.light-theme .review-card {
+  background-color: #f9f9f9;
+  color: #000;
+  box-shadow: 0 0 12px #00BFFF22;
+}
+
+/* Review content */
+.review-card p {
+  margin-bottom: 10px;
+  color: inherit;
+}
+
+/* Buttons inside review card */
+.review-card button {
+  background-color: #00BFFF;
+  color: #000;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.review-card button:hover {
+  background-color: #009ACD;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+body.light-theme .review-card button {
+  background-color: #0077aa;
+  color: #fff;
+}
+
+body.light-theme .review-card button:hover {
+  background-color: #005f7f;
+}
+
+/* Reply section inside a review */
+.reply-section {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.reply-section input.reply-input {
+  flex: 1;
+  min-width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #00BFFF;
+  background-color: #333;
+  color: #fff;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+body.light-theme .reply-section input.reply-input {
+  background-color: #f4f4f4;
+  color: #000;
+  border: 1px solid #0077aa;
+}
+
+/* Container for replies */
+.replies-container {
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: 2px solid #00BFFF44;
+}
+
+body.light-theme .replies-container {
+  border-left: 2px solid #0077aa22;
+}
+
+/* Each individual reply */
+.reply-card {
+  background-color: #333;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+body.light-theme .reply-card {
+  background-color: #e5e5e5;
+  color: #000;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .review-card {
+    padding: 15px;
+  }
+
+  .reply-section {
+    flex-direction: column;
+  }
+
+  .reply-section input.reply-input {
+    width: 100%;
+  }
+
+  .review-card button {
+    padding: 6px 10px;
+    margin-top: 5px;
+  }
+}
+
+/* Header */
+
+.user-header{
+width:100%;
+padding:12px 20px;
+background:#111;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+border-bottom:1px solid #333;
+}
+
+/* User Info */
+
+.user-info{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+/* Profile Picture */
+
+#header-profile-pic{
+width:40px;
+height:40px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #444;
+}
+
+/* Username */
+
+#header-username{
+color:white;
+font-size:16px;
+font-weight:bold;
+}
+
+/* Status Dot */
+
+#status-indicator{
+width:10px;
+height:10px;
+border-radius:50%;
+display:inline-block;
+}
+
+/* Online */
+
+.online{
+background:#00ff4c;
+box-shadow:0 0 6px #00ff4c;
+}
+
+/* Offline */
+
+.offline{
+background:#ff2b2b;
+box-shadow:0 0 6px #ff2b2b;
+}
+
+
+/* =========================
+  SOCIAL LINKS (fixed on screen)
+========================= */
+.social-links {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  z-index: 5; /* above dim */
+  position: relative;
+  left: -10px;
+}
+
+.social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #00BFFF;
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-links a:hover {
+  background-color: #009ACD;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+/* Nav links */
+.bottom-nav a {
+  color: #00BFFF;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.bottom-nav a:hover {
+  color: #fff;
+}
+
+.bottom-nav a.active {
+  background: linear-gradient(135deg, #00BFFF 0%, #000000 100%);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 8px #00BFFF88;
+}
+
+.bottom-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background-color: #00BFFF;
+  border-radius: 2px;
+}
+
+body.light-theme .bottom-nav a {
+  color: #0077aa;
+}
+
+body.light-theme .bottom-nav a:hover {
+  color: #000;
+}
+
+body.light-theme .bottom-nav a.active {
+  background: linear-gradient(135deg, #0077aa 0%, #000000 100%);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 8px #0077aa88;
+}
+​You​
+/* =========================
+   GLOBAL FIX FOR HORIZONTAL SCROLL
+========================= */
+
+/* Make width calculations safe */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure containers never overflow */
+.dashboard-content,
+.card,
+.update-card,
+.review-card,
+.message-card,
+.user-section,
+.reply-section {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Inputs and textareas must fit screen */
+input,
+textarea {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Prevent long text breaking layout */
+p, span, div {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Bottom nav must not exceed screen */
+.bottom-nav {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Prevent flex items causing overflow */
+.reply-section,
+.social-links,
+.services-section,
+.about-section {
+  flex-wrap: wrap;
+}
+
+/* Make nav fit all screen sizes */
+.bottom-nav {
+  display: flex;
+  width: 100%;
+}
+
+/* Make all nav items share space equally */
+.bottom-nav a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 12px;
+
+  /* Prevent overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}

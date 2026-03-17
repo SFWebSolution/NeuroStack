@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - NeuroStack</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <header class="dashboard-header">
+    <img src="file_00000000a054724688f05571cf680672.png" alt="NeuroStack Logo" class="logo">
+    <h1>Settings</h1>
+  </header>
+
+  <main class="dashboard-content">
+
+    <section id="settings-section" class="user-section">
+      
+      <!-- Username display & edit -->
+      <div class="setting-card">
+        <h3>Username</h3>
+        <input type="text" id="username-input" placeholder="Enter username">
+        <button id="update-username">Update Username</button>
+      </div>
+
+      <!-- Theme toggle -->
+      <div class="setting-card">
+        <h3>Theme</h3>
+        <button id="toggle-theme">Toggle Dark/Light Mode</button>
+      </div>
+
+      <!-- Profile picture -->
+      <div class="setting-card">
+        <h3>Profile Picture</h3>
+        <input type="file" id="profile-pic-input" accept="image/*">
+        <img id="profile-pic-preview" style="max-width:100px; border-radius:50%; display:block; margin-top:10px;">
+        <button id="update-profile-pic">Update Picture</button>
+      </div>
+
+      <!-- Status -->
+      <div class="setting-card">
+        <h3>Status</h3>
+    
+          
+      <button  id="logout-btn" >🚪 Logout</button>
+        
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Bottom nav -->
+  <nav class="bottom-nav">
+    <a href="home.html">🏠 Home</a>
+     <a href="about.html">ℹ️ About</a>
+    <a href="services.html">🛠 Services</a>
+    <a href="reviews.html">✍️ Reviews</a>
+    <a href="chat.html">💬 Chat</a>
+    <a class="active" href="settings.html">⚙️ Settings</a>
+  </nav>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="dashboard.js"></script>
+  
+
+</body>
+</html>
+

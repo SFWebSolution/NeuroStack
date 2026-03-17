@@ -1,0 +1,552 @@
+/* =========================
+   GENERAL STYLES
+========================= */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background image dimmed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('file_00000000b35c724690eef357ab92f39a.png') no-repeat center center/cover;
+  opacity: 0.05;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.light-theme::before {
+  filter: brightness(0.6);
+  opacity: 0.03;
+}
+
+body.light-theme {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+/* =========================
+   HEADER
+========================= */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  padding: 12px 24px;
+  border-bottom: 2px solid #00BFFF;
+  flex-wrap: wrap;
+}
+
+body.light-theme .dashboard-header {
+  background-color: #fff;
+  border-bottom: 2px solid #0077aa;
+}
+
+.dashboard-header .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.dashboard-header h1 {
+  font-size: 24px;
+  color: #00BFFF;
+  margin: 0;
+}
+
+body.light-theme .dashboard-header h1 {
+  color: #0077aa;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.dashboard-content {
+  padding: 20px;
+  padding-bottom: 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =========================
+   ADMIN / SECTIONS
+========================= */
+.admin-section {
+  background-color: rgba(17,17,17,0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #00BFFF44;
+  transition: all 0.3s;
+}
+
+body.light-theme .admin-section {
+  background-color: rgba(255,255,255,0.95);
+  color: #000;
+  box-shadow: 0 0 12px #00BFFF22;
+}
+
+.admin-section h2 {
+  margin: 0 0 12px 0;
+  color: #00BFFF;
+}
+
+body.light-theme .admin-section h2 {
+  color: #0077aa;
+}
+
+/* =========================
+   INPUTS & TEXTAREAS
+========================= */
+.admin-section input,
+.admin-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #00BFFF;
+  background-color: #222;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+body.light-theme .admin-section input,
+body.light-theme .admin-section textarea {
+  background-color: #f9f9f9;
+  color: #000;
+  border: 1px solid #0077aa;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.admin-section button {
+  background-color: #00BFFF;
+  color: #000;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.admin-section button:hover {
+  background-color: #009ACD;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+body.light-theme .admin-section button {
+  background-color: #0077aa;
+  color: #fff;
+}
+
+body.light-theme .admin-section button:hover {
+  background-color: #005f7f;
+}
+
+/* =========================
+   CARDS (Users, Reviews, Messages)
+========================= */
+.user-card, .review-card, .reply-card, .message-card {
+  background-color: rgba(34,34,34,0.9);
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 8px #00BFFF44;
+  transition: all 0.3s;
+  word-wrap: break-word;
+}
+
+body.light-theme .user-card,
+body.light-theme .review-card,
+body.light-theme .reply-card,
+body.light-theme .message-card {
+  background-color: rgba(249,249,249,0.95);
+  color: #000;
+  box-shadow: 0 0 8px #00BFFF22;
+}
+
+/* Reply section */
+.reply-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.reply-section input {
+  flex: 1;
+  min-width: 150px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #00BFFF;
+  background-color: #333;
+  color: #fff;
+}
+
+body.light-theme .reply-section input {
+  background-color: #f4f4f4;
+  color: #000;
+  border: 1px solid #0077aa;
+}
+
+/* =========================
+   CHAT STYLES
+========================= */
+#messages-container {
+  max-height: 450px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  scroll-behavior: smooth;
+  background-color: transparent;
+}
+
+/* MESSAGE BUBBLES */
+.message-card {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 20px;
+  max-width: 75%;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  position: relative;
+  transition: all 0.2s;
+}
+
+/* Admin (right) */
+.message-card.admin-msg {
+  background-color: #00BFFF;
+  color: #000;
+  align-self: flex-end;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* User (left) */
+.message-card.user-msg {
+  background-color: #444;
+  color: #fff;
+  align-self: flex-start;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+body.light-theme .message-card.admin-msg {
+  background-color: #0077aa;
+  color: #fff;
+}
+
+body.light-theme .message-card.user-msg {
+  background-color: #ddd;
+  color: #000;
+}
+
+/* Small timestamp */
+.message-card .timestamp {
+  font-size: 10px;
+  color: #ccc;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* Chat scrollbar */
+#messages-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+#messages-container::-webkit-scrollbar-thumb {
+  background-color: #00BFFF66;
+  border-radius: 4px;
+}
+
+body.light-theme #messages-container::-webkit-scrollbar-thumb {
+  background-color: #0077aa66;
+}
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 2px solid #00BFFF;
+  z-index: 100;
+}
+
+body.light-theme .bottom-nav {
+  background-color: #fff;
+  border-top: 2px solid #0077aa;
+}
+
+/* Nav links */
+.bottom-nav a {
+  color: #00BFFF;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.bottom-nav a:hover {
+  color: #fff;
+}
+
+.bottom-nav a.active {
+  background: linear-gradient(135deg, #00BFFF 0%, #000000 100%);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 8px #00BFFF88;
+}
+
+.bottom-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background-color: #00BFFF;
+  border-radius: 2px;
+}
+
+body.light-theme .bottom-nav a {
+  color: #0077aa;
+}
+
+body.light-theme .bottom-nav a:hover {
+  color: #000;
+}
+
+body.light-theme .bottom-nav a.active {
+  background: linear-gradient(135deg, #0077aa 0%, #000000 100%);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 8px #0077aa88;
+}
+
+/* =========================
+   PROFILE & STATUS
+========================= */
+#profile-pic-preview {
+  display: block;
+  margin: 10px 0;
+  border-radius: 50%;
+  border: 2px solid #00BFFF;
+  object-fit: cover;
+}
+
+body.light-theme #profile-pic-preview {
+  border: 2px solid #0077aa;
+}
+
+#status-text {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* =========================
+   UPDATES / POSTS
+========================= */
+.update-card {
+  background-color: rgba(34,34,34,0.9);
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00BFFF44;
+  transition: all 0.3s;
+  word-wrap: break-word;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body.light-theme .update-card {
+  background-color: rgba(249,249,249,0.95);
+  color: #000;
+  box-shadow: 0 0 10px #00BFFF22;
+}
+
+.update-card img.post-media,
+.update-card video.post-media {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.update-card p {
+  margin: 5px 0;
+}
+
+.update-card .comments {
+  margin-top: 8px;
+  padding-left: 8px;
+  border-left: 2px solid #00BFFF33;
+}
+
+.update-card .buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.update-card .buttons button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #00BFFF;
+  color: #000;
+  transition: all 0.2s;
+}
+
+.update-card .buttons button:hover {
+  background-color: #009ACD;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+body.light-theme .update-card .buttons button {
+  background-color: #0077aa;
+  color: #fff;
+}
+
+body.light-theme .update-card .buttons button:hover {
+  background-color: #005f7f;
+}
+
+.update-card,
+.update-card img,
+.update-card video,
+.update-card .comments,
+.update-card .buttons {
+  max-width: 100%;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media screen and (max-width: 900px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 20px;
+  }
+
+  .reply-section {
+    flex-direction: column;
+  }
+
+  .reply-section input {
+    width: 100%;
+  }
+
+  .update-card .buttons {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard-header .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .bottom-nav a {
+    font-size: 16px;
+  }
+
+  #messages-container {
+    max-height: 300px;
+  }
+
+  .admin-section {
+    padding: 15px;
+  }
+
+  .update-card img.post-media,
+  .update-card video.post-media {
+    max-height: 220px;
+  }
+
+  .update-card .buttons button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .dashboard-header {
+    padding: 8px 10px;
+  }
+
+  .bottom-nav a {
+    font-size: 14px;
+  }
+
+  .admin-section input,
+  .admin-section textarea {
+    padding: 8px;
+  }
+
+  .admin-section button {
+    padding: 8px 12px;
+  }
+
+  .update-card img.post-media,
+  .update-card video.post-media {
+    max-height: 180px;
+  }
+
+  .update-card .buttons button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

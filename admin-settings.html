@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Settings - NeuroStack</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <header class="dashboard-header">
+    <img src="file_00000000a054724688f05571cf680672.png" alt="NeuroStack Logo" class="logo">
+    <h1>Admin Settings</h1>
+  </header>
+
+  
+
+    <section class="admin-section">
+      <h2>Theme</h2>
+      <button id="toggle-theme">Toggle Dark/Light Mode</button>
+    </section>
+
+    <section class="admin-section">
+      <h2>Status</h2>
+      <button id="go-online">Go Online</button>
+      <button id="go-offline">Go Offline</button>
+      <p id="status-text">Current status: Online</p>
+    </section>
+
+    <section class="admin-section">
+      <button id="logout-btn">🚪 Logout</button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="admin.html">🏠 Home</a>
+    <a href="admin-reviews.html">📊 Review</a>
+    <a href="admin-chat.html">💬 Chat</a>
+    <a class="active" href="admin-settings.html">⚙️ Settings</a>
+  
+  </nav>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="admin.js"></script>
+
+</body>
+</html>
+
+

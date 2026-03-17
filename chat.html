@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat - NeuroStack</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <header class="dashboard-header">
+    <img src="file_00000000a054724688f05571cf680672.png" alt="NeuroStack Logo" class="logo">
+    <h1>Chat</h1>
+  </header>
+
+  <main class="dashboard-content">
+    <section id="chat-section" class="user-section">
+      <!-- Messages container -->
+      <div id="messages-container">
+        <p>Loading messages...</p>
+      </div>
+
+      <!-- Send message -->
+      <textarea id="message-input" placeholder="Type your message..."></textarea>
+      <button id="send-message">Send</button>
+    </section>
+  </main>
+
+  <!-- Bottom nav -->
+  <nav class="bottom-nav">
+    <a href="home.html">🏠 Home</a>
+      <a href="about.html">ℹ️ About</a>
+    <a href="services.html">🛠 Services</a>
+    <a href="reviews.html">✍️ Reviews</a>
+    <a class="active" href="chat.html">💬 Chat</a>
+    <a href="settings.html">⚙️ Settings</a>
+  </nav>
+
+  <!-- Firebase + user chat JS -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
+
