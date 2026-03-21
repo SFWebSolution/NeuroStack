@@ -180,22 +180,30 @@ if(updateUsernameBtn){
 // PROFILE PICTURE
 // =========================
 
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+
 if(profilePicInput){
 
-  profilePicInput.addEventListener("change", e=>{
+  profilePicInput.addEventListener("change", e => {
 
     const file = e.target.files[0];
 
     if(!file) return;
 
+    // Check file size
+    if(file.size > MAX_FILE_SIZE){
+      alert("Image is too big! Max size is 2MB.");
+      profilePicInput.value = ""; // reset input
+      if(profilePicPreview) profilePicPreview.src = ""; // optional: clear preview
+      return;
+    }
+
     const reader = new FileReader();
 
-    reader.onload = ()=>{
-
+    reader.onload = () => {
       if(profilePicPreview){
         profilePicPreview.src = reader.result;
       }
-
     };
 
     reader.readAsDataURL(file);
@@ -204,10 +212,9 @@ if(profilePicInput){
 
 }
 
-
 if(updatePicBtn){
 
-  updatePicBtn.addEventListener("click", ()=>{
+  updatePicBtn.addEventListener("click", () => {
 
     const file = profilePicInput.files[0];
 
@@ -216,17 +223,23 @@ if(updatePicBtn){
       return;
     }
 
+    // Double-check file size before uploading
+    if(file.size > MAX_FILE_SIZE){
+      alert("Image is too big! Max size is 2MB.");
+      return;
+    }
+
     const reader = new FileReader();
 
-    reader.onload = async ()=>{
+    reader.onload = async () => {
 
       const base64 = reader.result;
 
       await db.collection("users")
-      .doc(currentUser.uid)
-      .set({
-        profilePic:base64
-      },{merge:true});
+        .doc(currentUser.uid)
+        .set({
+          profilePic: base64
+        }, { merge: true });
 
       if(headerProfilePic){
         headerProfilePic.src = base64;
@@ -237,7 +250,6 @@ if(updatePicBtn){
       }
 
       alert("Profile picture updated!");
-
     };
 
     reader.readAsDataURL(file);
@@ -335,11 +347,18 @@ function loadUpdates(){
 
       }).join("");
 
-      card.innerHTML = `
-      <h3>${data.title}</h3>
-      <p>${data.description || ""}</p>
+ card.innerHTML = `
+  <h3>${data.title}</h3>
+  <p>${data.description || ""}</p>
 
-      ${data.image ? `<img src="${data.image}">` : ""}
+  ${data.image ? `<img src="${data.image}" style="width:100%; margin-top:10px; border-radius:8px;">` : ""}
+
+  ${data.video ? `
+    <video controls style="width:100%; margin-top:10px; border-radius:8px;">
+      <source src="${data.video}" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  ` : ""}
 
       <button class="like-btn" data-id="${updateId}">
       ❤️ Like (${likesCount})
